@@ -1,7 +1,7 @@
 ## Installation
 
-```bash
-$ yarn 
+````bash
+$ yarn
 
 ## Setup Database
 
@@ -10,12 +10,11 @@ $ yarn
 
 $ docker compose up -d --build
 
-```
+````
 
 # click this link to access database
 
 [Adminer](http://localhost:8080/)
-
 
 ## Running the app
 
@@ -24,4 +23,3 @@ $ docker compose up -d --build
 $ yarn dev
 
 ```
-
