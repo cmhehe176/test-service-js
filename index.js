@@ -26,21 +26,31 @@ const routeApi = '/'
 // Định nghĩa một route GET để lấy dữ liệu từ database
 app.get(routeApi, (_req, res) => {
 	
+    const whereVariable = {
+        name: 'header'
+    }
+
     const query = 
-		`select * 
-		from components
-		where name = 'header'
+		`
+        SELECT data, name
+        FROM components
+        WHERE name = '${whereVariable.name}'
+        AND JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].name')) = '${whereVariable.name}'
         `
 
     // Thực hiện truy vấn đến cơ sở dữ liệu
     connection.query(query, (err, results, _fields) => {
-        if (err) {
-            // Nếu có lỗi, trả về HTTP 500 và thông báo lỗi
-            res.status(500).json({ error: 'Lỗi khi truy vấn cơ sở dữ liệu', details: err.stack });
-            return;
-        }
         
-        // Trả về kết quả dưới dạng JSON
+        console.log('query', query)
+
+        // Nếu có lỗi, trả về HTTP 500 và thông báo lỗi
+        if (err) return res.status(500).json({ error: 'Lỗi khi truy vấn cơ sở dữ liệu', details: err.stack });
+        
+        // Biến đổi results trả về phù hợp theo required của FE
+        results = results.map(item => item);
+
+
+        // Trả về kết quả API dưới dạng JSON
         res.json(results);
     });
 });
