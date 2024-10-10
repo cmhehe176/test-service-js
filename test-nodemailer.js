@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: 'aiot.platform.hust@gmail.com',
-    pass: 'password application'
+    pass: 'hyke qdnp evdz hhbp'
   }
 });
 
