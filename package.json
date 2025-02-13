@@ -1,5 +1,5 @@
 {
-  "name": "demo_database",
+  "name": "test_service",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.9",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "jwt-decode": "^4.0.0",
