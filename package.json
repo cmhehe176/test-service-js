@@ -9,7 +9,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "ndmc",
+  "author": "cmhehe176",
   "license": "ISC",
   "description": "",
   "dependencies": {
